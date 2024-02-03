@@ -1,0 +1,398 @@
+@charset "UTF-8";
+
+/* Typical Devices Breakpoints 
+
+Mobile devices – 320px — 480px.
+iPads, Tablets – 481px — 768px.
+Small screens, laptops – 769px — 1024px.
+Desktops, large screens – 1025px — 1200px.
+Extra large screens, TV – 1201px, and more.
+
+/* **** */
+
+/* MOBILE FIRST */
+
+:root{
+	--hsl-hue: 195; /* (azul) */
+
+	--color-white: hsl(0, 0%, 100%);	
+	--color-gray-100: hsl(196, 100%, 98%);
+	--color-gray-800: #202024; /* titles */
+	--color-gray-900: #121214;/* text */
+	--color-01: hsl(var(--hsl-hue), 91%, 25%); /* header */
+	--color-02: hsl(var(--hsl-hue), 46%, 40%); /* input-text, footer  */
+	--color-03: #c7a1fa; /* links */
+
+	font-size: 62.5%;
+
+	font-family: 'Mulish', sans-serif;;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+html, body, input{
+	font-family: 'Mulish', sans-serif;
+}
+
+body{
+	font-size: 1.6rem;
+	height: 100vh;
+	height: 100svh;
+	height: 100dvh;
+	background-color: var(--color-01); /* mesmo do footer e header, para dar a sensação extensão destes (já que têm uma largura de 112rem) */
+}
+
+#app{
+	display: grid;
+	grid-template: 
+	"HEADER" 72px
+	"CONTAINER-CONTENT" 1fr
+	"FOOTER" 64px; 
+	height: 100vh;
+	
+}
+
+header{
+	grid-area: HEADER;
+	display: grid;
+	align-content: center;
+	background-color: var(--color-01);
+	color: var(--color-white);
+	font-weight: 600;
+	--distance-slideY: -50%;
+	animation: slideY 2s;
+}
+
+nav{
+	/* display: grid;
+	grid-auto-flow: column; */
+	display: flex;
+	align-items: center;
+	gap: 2.5rem;
+	padding: 0 2.8rem;
+}
+
+nav #logo-empresa{
+	border-radius: 50%;
+	border-style: unset;
+}
+
+nav #logo-empresa:hover{
+	box-shadow: 0 0 1px var(--color-white), 0 0 10px var(--color-white), 0 0 20px var(--color-white);
+	cursor: pointer;
+}
+
+nav form{
+	flex: 1;
+}
+
+nav .input-wrapper{
+	display: flex;
+}
+
+nav .input-wrapper input{
+	width: 100%;
+	padding: 1.2rem 1.6rem 1.2rem 1.4rem;
+	align-items: center;
+	border-radius: 4px;
+	background-color: var(--color-02);
+	color: var(--color-white);
+	font-size: 1.6rem;
+	border: none;
+	outline: none;
+}
+
+nav .input-wrapper input::placeholder{
+	color: #cccccc;
+}
+
+nav .input-wrapper input:focus{
+	outline: 2px solid #fff;
+}
+
+nav .input-wrapper #label-pesquisa{ /* sumir com a label mas mantendo a relação com o placeholder */
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+}
+
+nav .avatar{
+	width: 4.2rem;
+	height: 4.2rem;
+	border-radius: 50%;
+}
+
+div#main-img{
+	background-color: var(--color-gray-100);
+}
+
+#container-content{
+	grid-area: CONTAINER-CONTENT;
+	background-color: var(--color-gray-100);
+}
+
+#h2-wrapper{
+	padding: 2.8rem 2.2rem;
+}
+
+#text-content{
+	padding: 0rem 2.2rem;
+	
+}
+
+aside{
+	padding: 0rem 2.2rem 4rem;
+}
+
+#container-content h2{
+	font-size: 2.2rem;
+	font-weight: 700;
+	color: var(--color-gray-800);
+	line-height: 160%;
+}
+
+.container{
+	width: min(112rem, 100%);
+	margin: 0 auto;
+	
+}
+
+#main-image-cat{
+	width: 100%
+}
+
+main div#h2-wrapper{
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	/* margin-bottom: 2.8rem; */
+}
+
+main div#h2-wrapper div#icons-thumbs{
+	display: flex;
+	gap: 1.2rem;
+}
+
+main div#h2-wrapper div#icons-thumbs img{
+	border-radius: 50%;
+}
+
+main div#h2-wrapper div#icons-thumbs img:hover{
+	cursor: pointer;
+	box-shadow: 0 0 10px var(--color-02), 0 0 20px var(--color-02);
+}
+
+main p{
+	font-size: 1.6rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 160%; 
+
+}
+
+main p + p{
+	margin-top: 2.4rem;
+}
+
+#container-content aside h2{
+	margin-top: 3.2rem;
+	margin-bottom: 1.6rem;
+	
+}
+
+#div-figures{
+	display: flex;
+	flex-direction: column;
+	gap: 3.2rem;
+}
+
+.item-aside{
+	display: flex;
+	gap: 1.6rem;
+}
+
+.item-aside img{
+	align-self: center;
+}
+
+.item-aside h3{
+	margin-bottom: 2px;
+		color: var(--color-gray-800);
+		font-weight: 700;
+		font-size: 1.8rem;
+	
+}
+
+.item-aside p{
+	color: var(--color-gray-900);
+	font-size: 1.4rem;
+	line-height: 160%;
+	font-weight: 400;
+}
+
+footer{
+	grid-area: FOOTER;
+	text-align: center;
+	display: grid;
+	align-content: center;
+	background-color: var(--color-01);
+	--distance-slideY: 100%;
+	animation: slideY 2s;
+}
+
+footer p{
+	color: var(--color-white);
+	font-weight: 600;
+}
+
+footer a{
+	color: var(--color-03);
+}
+
+footer a:hover{
+	text-decoration: none;
+}
+
+footer a:visited{
+	color: var(--color-03);
+}
+
+/* ANIMATIONS */
+
+@keyframes slideY{
+	0%{
+		opacity: 0;
+		transform: translateY(var(--distance-slideY));
+
+	}
+	50%{
+		transform: translateY(0);
+	}
+}
+
+/* RESPONSIVIDADE COM MEDIA QUERIES */
+
+@media (768px <= width <= 1024px){ 
+	div#container-flex-direction{
+		padding-top: 4.4rem;
+		padding-bottom: 4.4rem;
+		display: grid;
+		grid-template: 
+		"MAIN ASIDE" 1fr/ 1fr 384px;
+		column-gap: 3.2rem;
+	}
+
+	main{
+		grid-area: MAIN;
+		--distance-slideX: -50%;
+		animation: slideX 1s backwards;
+	}
+
+	aside{
+		grid-area: ASIDE;
+	}
+	
+	div#main-img{
+		display: flex;
+		justify-content: center;
+		padding: 0 0 0 2.2rem;
+	}
+	
+	aside{
+		width: 384px;
+		padding-left: 0;
+		--distance-slideX: 10%;
+		animation: slideX 1s .5s backwards;
+	}
+	
+	#container-content aside h2{
+		margin-top: 0;
+		line-height: 100%;
+	}
+	
+	#main-img, #h2-wrapper, #text-content{
+		padding-right: 0;
+	}
+}
+
+@keyframes slideX{
+	0%{
+		opacity: 0;
+		transform: translateX(var(--distance-slideX));
+	}
+	50%{
+		transform: translateX(0);
+	}
+}
+
+@media (1025px <= width){
+
+	div#container-flex-direction{
+		padding-top: 4.4rem;
+		padding-bottom: 4.4rem;
+		display: grid;
+		grid-template: 
+		"MAIN ASIDE" 1fr/ 1fr 384px;
+		column-gap: 3.2rem;
+	}
+
+	#container-content h2{
+		font-size: 2.4rem;
+	}
+
+	main{
+		grid-area: MAIN;
+		--distance-slideX: -50%;
+		animation: slideX 1s backwards;
+	}
+
+	div#main-img{
+		padding: 0 0 0 2.2rem;
+	}
+
+	main div#h2-wrapper{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	aside{
+		grid-area: ASIDE;
+		width: 384px;
+		padding-left: 0;
+		--distance-slideX: 50%;
+		animation: slideX 1s .5s backwards;
+	}
+
+	#container-content aside h2{
+		margin-top: 0;
+		line-height: 100%;
+	}
+
+	@keyframes slideX{
+		0%{
+			opacity: 0;
+			transform: translateX(var(--distance-slideX));
+		}
+		50%{
+			transform: translateX(0);
+		}
+	}
+
+}
+
+
+
+
+
+
+
+
